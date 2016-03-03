@@ -68,6 +68,24 @@
             $this->assertEquals([], $result);
         }
 
+        function testFind()
+       {
+           //Arrange
+           $store_name = "REI";
+           $location = "Seattle, WA";
+           $test_store = new Store($store_name, $location);
+           $test_store->save();
+
+           $store_name2 = "Payless";
+           $location2 = "Olympia, WA";
+           $test_store2 = new Store($store_name2, $location2);
+           $test_store->save();
+           //Act
+           $result = Store::find($test_store->getId());
+           //Assert
+           $this->assertEquals($test_store, $result);
+       }
+
 
     }
 ?>
