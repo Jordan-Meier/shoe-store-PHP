@@ -18,5 +18,50 @@
           Store::deleteAll();
         }
 
+        function testSave()
+        {
+            //Arrange
+            $name = "Vans";
+            $test_brand = new Brand($name);
+            $test_brand->save();
+            //Act
+            $result = Brand::getAll();
+            //Assert
+            $this->assertEquals($test_brand, $result[0]);
+        }
+
+        function testGetAll()
+        {
+            //Arrange
+            $name = "Vans";
+            $test_brand = new Brand($name);
+            $test_brand->save();
+
+            $name2 = "Chacos";
+            $test_brand2 = new Brand($name2);
+            $test_brand2->save();
+            //Act
+            $result = Brand::getAll();
+            //Assert
+            $this->assertEquals([$test_brand, $test_brand2], $result);
+        }
+
+        function testDeleteAll()
+        {
+            //Arrange
+            $name = "Vans";
+            $test_brand = new Brand($name);
+            $test_brand->save();
+
+            $name2 = "Chacos";
+            $test_brand2 = new Brand($name2);
+            $test_brand2->save();
+            //Act
+            Brand::deleteAll();
+            //Assert
+            $result = Brand::getAll();
+            $this->assertEquals([], $result);
+        }
+
     }
 ?>
