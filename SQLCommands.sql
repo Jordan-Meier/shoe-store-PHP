@@ -5,7 +5,7 @@ USE shoes;
 CREATE TABLE stores
 (
   id serial PRIMARY KEY,
-  name VARCHAR(255),
+  store_name VARCHAR(255),
   location VARCHAR (255),
 );
 
