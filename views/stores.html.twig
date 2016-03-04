@@ -10,7 +10,7 @@
     <br>
     <div class='container'>
         {% if stores is not empty %}
-            <p>All available stores:</p>
+            <h2>All available stores:</h2>
             <ul>
                 {% for store in stores %}
                     <li><a href="/stores/{{ store.getId }}">{{ store.getStoreName }}</a>,
