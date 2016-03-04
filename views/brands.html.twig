@@ -8,7 +8,7 @@
         <h1>Brands</h1>
 
         {% if brands is not empty %}
-            <p>All brands in our Stores:</p>
+            <p>Here are all of the brands in our database:</p>
             <ol>
                 {% for brand in brands %}
                     <li><a href='/brands/{{ brand.getId }}'> {{ brand.getName }} </a></li>
@@ -16,8 +16,8 @@
             </ol>
         {% endif %}
 
-        <form action='/add_brand' method='post'>
-            <label for='name'>Brand: </label>
+        <form action='/brands' method='post'>
+            <label for='name'>Brand Name: </label>
             <input id='name' name='name' type='text'>
 
             <button type='submit'>Add Brand</button>

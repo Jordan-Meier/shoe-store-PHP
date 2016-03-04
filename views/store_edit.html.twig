@@ -5,18 +5,20 @@
 </head>
 <body>
     <div class='container'>
-        <h1>Update Store: {{ store.getStoreName }}</h1>
+        <h1>Update this Store: {{ store.getStoreName }}</h1>
 
-        <form action='/stores/{{ store.getId }}' method='post'>
+        <form action='/store/{{ store.getId }}' method='post'>
             <input name='_method' type='hidden' value='patch'>
 
             <label for='store_name'>Rename this Store:</label>
-            <input id='store_name' name='store_name' type='text'>
+            <input id='store_name' name='store_name' type='text' value= '{{ store.getStoreName }}'>
+            <label for='location'>Edit location:</label>
+            <input id='location' name='location' type='text' value= '{{ store.getLocation }}'>
 
             <button type='submit'>Update</button>
         </form>
 
-        <form action='/stores/{{ store.getId }}'method='post'>
+        <form action='/store/{{ store.getId }}'method='post'>
             <input name='_method' type='hidden' value='delete'>
             <button type='submit'>Delete this Store</button>
         </form>
