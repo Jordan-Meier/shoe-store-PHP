@@ -48,7 +48,7 @@
     //Deletes all stores and returns homepage
     $app->post("/delete_stores", function() use ($app) {
         Store::deleteAll();
-        return $app['twig']->render('index.html.twig');
+        return $app['twig']->render('stores.html.twig');
     });
 
     //Gets page for an individual store with it's brands and the ability to add brands to the store
@@ -120,7 +120,7 @@
 
     $app->post("/delete_brands", function() use ($app) {
         Brand::deleteAll();
-        return $app['twig']->render('index.html.twig');
+        return $app['twig']->render('brands.html.twig');
     });
 
     return $app;
