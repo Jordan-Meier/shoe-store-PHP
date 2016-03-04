@@ -42,7 +42,7 @@
             $store_name2 = "Payless";
             $location2 = "Olympia, WA";
             $test_store2 = new Store($store_name2, $location2);
-            $test_store->save();
+            $test_store2->save();
             //Act
             $result = Store::getAll();
             //Assert
