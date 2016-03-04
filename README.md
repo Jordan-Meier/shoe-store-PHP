@@ -1,16 +1,18 @@
-# TITLE
+# Shoe Database Assessment
 
-## Epicodus PHP, Week 2: BDD Practice
+## Epicodus PHP, Week 4: Database practice. Many-to-many relationships
 
 ### By: Jordan Meier
 
 ### Description
 
+This week's code review is a website where a user can go to add and view shoe stores in their and add/view brands that those stores carry.
 
+![Alt text](web/images/screenshot.jpg)
 
 ### Known Bugs
 
-No known bugs at this time.
+* When editing store or brand names, the form does not like apostrophes.
 
 ### Setup
 
@@ -27,12 +29,37 @@ php -S localhost:8000
 ```
 * Go to your browser and for the URL, type in: localhost:8000
 
+* To access the database, in a separate terminal window, navigate to your project folder and enter:
+```shell
+apachectl start
+```
+followed by:
+```shell
+mysql.server start
+mysql -uroot -uroot
+```
+* In a new window in your web browser, type in: localhost:8080/phpmyadmin
+
+* Login and click on the import tab. Under choose file, choose the file from the project folder ending in .sql and click go.
+
+* You can now access the shoes database!
+
+* If sql file does not properly work, you can enter the following into your designated mySQL terminal:
+```shell
+CREATE DATABASE shoes;
+USE shoes;
+CREATE TABLE stores (id serial PRIMARY KEY, store_name VARCHAR(255), location VARCHAR (255));
+CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR(255));
+CREATE TABLE stores_brands (id serial PRIMARY KEY, store_id INT, brand_id INT);
+```
 
 ### Technologies Used
 * html
 * CSS
 * PHP
 * Silex
+* MySQL
+* Apache
 * Twig
 * PHPUnit
 * Bootstrap v3.3.6
