@@ -102,23 +102,6 @@
           $this->assertEquals(["Imeldas", "Portland, OR"], [$test_store->getStoreName(), $test_store->getLocation()]);
       }
 
-      function testUpdate()
-      {
-          //Arrange
-          $description = "Wash the dog";
-          $id = 1;
-          $due_date = "2016-03-01";
-          $completion = 0;
-          $test_task = new Task($description, $due_date, $completion, $id);
-          $test_task->save();
-          $new_description = "Clean the dog";
-          $new_due_date = "2016-03-05";
-          $new_completion = 1;
-          //Act
-          $test_task->update($new_description, $new_due_date, $new_completion);
-          //Assert
-          $this->assertEquals(["Clean the dog", "2016-03-05", 1], [$test_task->getDescription(), $test_task->getDueDate(), $test_task->getCompletion()]);
-      }
 
 
     }
