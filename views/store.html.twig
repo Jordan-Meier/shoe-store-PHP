@@ -18,6 +18,10 @@
                     <li>{{ brand.getName }}</li>
                 {% endfor %}
             </ul>
+            {% else %}
+                <div class="well">
+                    <h3>Oops! No brands have been added to this store yet.</h3>
+                </div>
         {% endif %}
 
         <h4>Add a Brand to this Store:</h4>

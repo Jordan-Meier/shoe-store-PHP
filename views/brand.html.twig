@@ -8,15 +8,20 @@
         <h1>Portland's Shoe Catalog</h1>
     </div>
     <div class='container'>
-        <h1>{{ brand.getName }}</h1>
+        <h1><strong>{{ brand.getName }}</strong></h1><hr><br>
+        <h2>Stores that carry this brand</h2>
 
         {% if stores is not empty %}
-            <p>This Brand is available at these Stores:</p>
+            <h3>This Brand is available at these Stores:</h3>
             <ul>
                 {% for store in stores %}
                     <li>{{ store.getStoreName }}, Location: {{ store.getLocation }}</li>
                 {% endfor %}
-            </ul>
+            </ul><br>
+        {% else %}
+            <div class="well">
+                <h3>Oops! No stores have been added yet.</h3>
+            </div>
         {% endif %}
 
         <h4>Add a Store where this Brand is available for purchase:</h4>
