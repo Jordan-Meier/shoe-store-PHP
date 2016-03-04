@@ -11,12 +11,16 @@
         <h1>Brands</h1>
 
         {% if brands is not empty %}
-            <p>Here are all of the brands in our database:</p>
-            <ol>
+            <h3>Here are all of the brands in our database:</h3>
+            <ul>
                 {% for brand in brands %}
                     <li><a href='/brands/{{ brand.getId }}'> {{ brand.getName }} </a></li>
                 {% endfor %}
-            </ol>
+            </ul>
+        {% else %}
+            <div class="well">
+                <h3>Oops! No brands have been added yet.</h3>
+            </div>
         {% endif %}
 
         <form action='/brands' method='post'>
