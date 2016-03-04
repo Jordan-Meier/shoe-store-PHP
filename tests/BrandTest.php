@@ -11,7 +11,7 @@
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
-    
+
     class BrandTest extends PHPUnit_Framework_TestCase
     {
         protected function tearDown()
@@ -99,11 +99,10 @@
             $test_store2->save();
 
             //Act
-            $test_brand->addStore($test_store->getId());
-            $test_brand->addStore($test_store2->getId());
-            $result = $test_brand->getStores();
+            $test_brand->addStore($test_store);
+            $test_brand->addStore($test_store2);
             //Assert
-            $this->assertEquals([$test_store, $test_store2], $result);
+            $this->assertEquals([$test_store, $test_store2], $test_brand->getStores());
         }
 
         function test_addStore()
@@ -118,9 +117,9 @@
             $test_store = new Store($store_name, $location);
             $test_store->save();
             //Act
-            $test_brand->addStore($test_store->getId());
+            $test_brand->addStore($test_store);
             //Assert
-            $this->assertEquals($test_brand->getStores(), [$test_store]);
+            $this->assertEquals([$test_store], $test_brand->getStores());
         }
 
     }
