@@ -118,5 +118,10 @@
             Store::getAll(), 'brands' => $store->getBrands(), 'all_brands' => Brand::getAll()));
     });
 
+    $app->post("/delete_brands", function() use ($app) {
+        Brand::deleteAll();
+        return $app['twig']->render('index.html.twig');
+    });
+
     return $app;
 ?>
