@@ -83,7 +83,7 @@
     });
 
     //DELETE singular store
-    $app->delete("/stores/{id}", function($id) use ($app) {
+    $app->delete("/store/{id}", function($id) use ($app) {
         $store = Store::find($id);
         $store->delete();
         return $app['twig']->render('index.html.twig', array('stores' => Store::getAll()));
